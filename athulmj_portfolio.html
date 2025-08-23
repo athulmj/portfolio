@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athul M J | Porfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #3f51b5;
+        }
+
+        .logo span {
+            color: #ff4081;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3f51b5;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ff4081;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #e91e63;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* About Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #777;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #3f51b5;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: #f5f5f5;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: #3f51b5;
+            margin-bottom: 1rem;
+        }
+
+        .skill-item h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content p {
+            color: #777;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tag {
+            background: #e0e0ff;
+            color: #3f51b5;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .contact .section-title h2 {
+            color: white;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h3 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .form-btn:hover {
+            background: #e91e63;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: #3f51b5;
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            color: #aaa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+        }
+
+        /* Position submenu */
+        .nav-links .dropdown {
+            position: relative;
+        }
+
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            list-style: none;
+            padding: 10px 0;
+            margin: 0;
+            display: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .submenu li {
+            padding: 8px 20px;
+        }
+
+        .submenu li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .dropdown:hover .submenu {
+            display: block;
+        }
+
+        /* Optional: style main nav links */
+        .nav-links li a {
+            padding: 10px 15px;
+            display: inline-block;
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Portfo<span>lio</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+
+                    <li class="dropdown">
+                        <a href="#projects">Projects</a>
+                        <ul class="submenu">
+                            <li><a href="#company-projects">Company Projects</a></li>
+                            <li><a href="#personal-projects">Own Projects</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hi, I'm Athul M J</h1>
+                <p>
+                    I'm an Angular developer with a passion for building dynamic, responsive web applications. Beyond
+                    the browser, I'm an IoT enthusiast who loves crafting smart, connected systems that blend hardware
+                    and software seamlessly. I'm also a video editor with an eye for storytelling and visual impact.
+                    Whether it's coding, creating, or exploring new technologies, I'm always driven by curiosity and a
+                    desire to learn, build, and share.
+                </p>
+                <a href="#projects" class="btn">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p class="end">Get to know more about my background, skills, and passion for web development</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQEi3j9YFiuetw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1725640608247?e=1758758400&v=beta&t=mbenhlZ0YAmWcXov5CeZoRrvKjn2KG4eqEkebpMk454"
+                        alt="John Doe">
+                </div>
+                <div class="about-text">
+                    <h3>Frontend Developer & UI/UX Enthusiast</h3>
+                    <p>I am a passionate Angular developer with 2.8 years of experience in building dynamic and
+                        responsive web applications. My journey into web development began after college, when I pursued
+                        a full-stack development course focused on Python, Django, and Angular.</p>
+                    <p>My first professional role was as an SQL trainee, which gave me a strong foundation in data
+                        handling and backend logic. Since then, I've specialized in Angular, TypeScript, and modern
+                        JavaScript frameworks—transforming complex challenges into elegant, user-friendly solutions.</p>
+                    <p>Outside of coding, I love exploring emerging technologies, editing videos, and continuously
+                        learning new skills. I also enjoy sharing insights through tech blogs, tutorials, and
+                        open-source contributions.</p>
+                    <a href="#contact" class="btn">Hire Me</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+                <p>I work with a range of technologies and tools to create amazing web experiences</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-angular"></i>
+                    </div>
+                    <h3>Angular</h3>
+                    <p>Building dynamic single-page applications with Angular framework and RxJS</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <h3>JavaScript/TypeScript</h3>
+                    <p>Creating interactive web experiences with modern JavaScript and TypeScript</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3>HTML5/CSS3</h3>
+                    <p>Crafting responsive and accessible web interfaces with semantic HTML and CSS</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <h3>Node.js</h3>
+                    <p>Developing server-side applications and RESTful APIs with Node.js and Express</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-bootstrap"></i>
+                    </div>
+                    <h3>Bootstrap</h3>
+                    <p>Designing responsive, mobile-first interfaces with Bootstrap’s grid and utility classes</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>PrimeNG</h3>
+                    <p>Enhancing Angular applications with rich UI components from the PrimeNG library</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub & CI/CD</h3>
+                    <p>Version control, branching strategies, and automating deployments using GitHub Actions</p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>cPanel</h3>
+                    <p>Managing web hosting, domains, databases, and email services through cPanel</p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>IoT Development</h3>
+                    <p>Creating interactive IoT systems using ESP32, BLE, web servers, and real-time data logging</p>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Video Editing</h3>
+                    <p>Crafting engaging tech tutorials and project showcases using modern editing tools</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Projects Section -->
+    <section class="section" id="company-projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Company Projects</h2>
+                <p>Key projects I've contributed to during my professional career</p>
+            </div>
+            <div class="projects-container">
+
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://www.datadevices.com/wp-content/uploads/hotelier.jpg" alt="TheHotelier App">
+                    </div>
+                    <div class="project-content">
+                        <h3>TheHotelier – Hospitality Operations Platform</h3>
+                        <p>A comprehensive hotel management system built using microfrontend architecture. Designed for
+                            the hospitality domain, it centralizes operations like reservations, housekeeping, payroll,
+                            and reporting. I developed the platform from scratch, including shared libraries for
+                            reusable controls and components, and modular Angular applications for each functional area.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Angular</span>
+                            <span class="project-tag">Microfrontend</span>
+                            <span class="project-tag">Shared Libraries</span>
+                            <span class="project-tag">Hospitality</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://infowan.net/Content/images/blogs/payrollsoftware1.png" alt="Payroll App">
+                    </div>
+                    <div class="project-content">
+                        <h3>Payroll Management System</h3>
+                        <p>An Angular-based payroll application designed to handle employee salary, attendance, and HR
+                            workflows for the hospitality domain.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Angular</span>
+                            <span class="project-tag">HR Tech</span>
+                            <span class="project-tag">Payroll</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrsq0pYjOFljo5E9icM9NMEbNAnL-hxGzbNQ&s"
+                            alt="TheCentres">
+                    </div>
+                    <div class="project-content">
+                        <h3>TheCentres – Hotel Booking Platform</h3>
+                        <p>A centralized multi-property hotel reservation system built for a hospitality company.
+                            Developed using Angular and PHP, it streamlines bookings across resorts and hotels.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Angular</span>
+                            <span class="project-tag">PHP</span>
+                            <span class="project-tag">Hospitality</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://portfolio.investmentguruindia.com/investmentguruimages/upload/post/2023/03/0aa3be9332a430b963742213c48d2943.jpg"
+                            alt="Spice App">
+                    </div>
+                    <div class="project-content">
+                        <h3>Spice – Backoffice Stock Market App</h3>
+                        <p>Developed for Geojit Technologies, this Angular-based application manages stock market
+                            operations and internal workflows. I contributed to both feature development and version
+                            migration.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Angular</span>
+                            <span class="project-tag">RxJS</span>
+                            <span class="project-tag">Version Migration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Projects Section -->
+    <section class="section" id="personal-projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Personal Projects</h2>
+                <p>Projects I've built to explore new technologies and sharpen my skills</p>
+            </div>
+            <div class="projects-container">
+
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://lastminuteengineers.com/wp-content/uploads/featuredimages/Tutorial-for-Creating-ESP32-Websocket-Server.webp"
+                            alt="WiFi LED Controller">
+                    </div>
+                    <div class="project-content">
+                        <h3>WiFi LED Controller</h3>
+                        <p>An IoT project using NodeMCU ESP32 and WS2812 RGB LED ring. The ESP32 hosts a local webpage
+                            to control brightness, speed, presets, and save custom light settings.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">ESP32</span>
+                            <span class="project-tag">IoT</span>
+                            <span class="project-tag">WS2812</span>
+                            <span class="project-tag">Web Server</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://5.imimg.com/data5/ECOM/Default/2024/5/420879422/YW/MD/MU/97517045/61l-om9k72l-sl1500.jpg"
+                            alt="BlazePrint">
+                    </div>
+                    <div class="project-content">
+                        <h3>BlazePrint</h3>
+                        <p>A web-based Angular app that connects to a GB01 Mini Bluetooth Thermal Printer and prints
+                            content typed on a canvas. Built for BLE printing experiments.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Angular</span>
+                            <span class="project-tag">Bluetooth</span>
+                            <span class="project-tag">Thermal Printer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://play-lh.googleusercontent.com/Ga5nSn-hnN6stEO-zPZB1rEXnq--Hy-85SSKmlkFsAr2MKz8bAUNqKknQtmglJ8OM30"
+                            alt="BlueScanX">
+                    </div>
+                    <div class="project-content">
+                        <h3>BlueScanX</h3>
+                        <p>An Angular web app that scans nearby Bluetooth devices and displays their characteristic
+                            details. Built to explore BLE communication in browsers.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Angular</span>
+                            <span class="project-tag">Bluetooth</span>
+                            <span class="project-tag">Web BLE</span>
+                        </div>
+                        <a href="https://athulmj.github.io/bluescanx/" class="btn" target="_blank">Live Demo</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://resources.workable.com/wp-content/uploads/2018/03/job-portals-featured.png"
+                            alt="Job Portal App">
+                    </div>
+                    <div class="project-content">
+                        <h3>Job Portal</h3>
+                        <p>Entry-level full-stack application built during my Python Django course. Includes job
+                            posting, application management, and admin panel.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Django</span>
+                            <span class="project-tag">HTML/CSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpKMzD3fTHa7NO9k0N3C_KbXkT3up8jZccpg&s"
+                            alt="Todo App">
+                    </div>
+                    <div class="project-content">
+                        <h3>Angular Todo App</h3>
+                        <p>A simple CRUD-based task manager built in Angular to add, update, and delete todo notes.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Angular</span>
+                            <span class="project-tag">TypeScript</span>
+                            <span class="project-tag">CRUD</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+                <p style="color: white;">Feel free to reach out if you want to collaborate or have any questions</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Kochi, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>athulmj9999@outlook.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 9207856724</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Me a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" placeholder="Enter your message"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="form-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo">Portfo<span>lio</span></div>
+            <div class="social-links">
+                <a href="https://github.com/athulmj" class="social-link" target="_blank"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/athulmj/" class="social-link" target="_blank"><i
+                        class="fab fa-linkedin-in"></i></a>
+                <!-- <a href="#" class="social-link"><i class="fab fa-twitter" target="_blank"></i></a> -->
+                <a href="https://www.instagram.com/amj_creations24/" class="social-link" target="_blank"><i
+                        class="fab fa-instagram"></i></a>
+            </div>
+            <p class="copyright">&copy; <span id="year"></span> John Doe. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+        // Simple form validation
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && message) {
+                alert('Thanks for your message! I will get back to you soon.');
+                this.reset();
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function () {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (window.innerWidth < 768) {
+                        document.querySelector('.nav-links').style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
