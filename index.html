@@ -8,6 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS (for toggling and dropdowns) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <style>
         * {
             margin: 0;
@@ -54,26 +60,6 @@
 
         .logo span {
             color: #ff4081;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #3f51b5;
         }
 
         .hamburger {
@@ -408,14 +394,6 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -428,76 +406,56 @@
                 padding: 4rem 0;
             }
         }
-
-        /* Position submenu */
-        .nav-links .dropdown {
-            position: relative;
-        }
-
-        .submenu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #fff;
-            list-style: none;
-            padding: 10px 0;
-            margin: 0;
-            display: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-
-        .submenu li {
-            padding: 8px 20px;
-        }
-
-        .submenu li a {
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .dropdown:hover .submenu {
-            display: block;
-        }
-
-        /* Optional: style main nav links */
-        .nav-links li a {
-            padding: 10px 15px;
-            display: inline-block;
-            color: #333;
-            text-decoration: none;
-            font-weight: 600;
-        }
     </style>
 </head>
 
 <body>
     <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Portfo<span>lio</span></div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand logo" href="#">Portfo<span>lio</span></a>
 
-                    <li class="dropdown">
-                        <a href="#projects">Projects</a>
-                        <ul class="submenu">
-                            <li><a href="#company-projects">Company Projects</a></li>
-                            <li><a href="#personal-projects">Own Projects</a></li>
-                        </ul>
-                    </li>
+                <!-- Hamburger toggle button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="hamburger">
-                    <i class="fas fa-bars"></i>
+                <!-- Collapsible nav links -->
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#skills">Skills</a>
+                        </li>
+
+                        <!-- Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#projects" id="navbarDropdownMenuLink"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Projects
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="#company-projects">Company Projects</a></li>
+                                <li><a class="dropdown-item" href="#personal-projects">Own Projects</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
     </header>
+
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -820,7 +778,7 @@
                 <p style="color: white;">Feel free to reach out if you want to collaborate or have any questions</p>
             </div>
             <div class="contact-container">
-                <div class="contact-info">
+                <!-- <div class="contact-info">
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
@@ -836,7 +794,7 @@
                         </div>
                         <div>
                             <h3>Email</h3>
-                            <p>athulmj9999@outlook.com</p>
+                            <p>athulmj999@outlook.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -848,7 +806,48 @@
                             <p>+91 9207856724</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
+
+                <div class="contact-info">
+  <div class="contact-item">
+    <div class="contact-icon">
+      <i class="fas fa-map-marker-alt"></i>
+    </div>
+    <div>
+      <h3>Location</h3>
+      <p>
+        <a class="text-light" href="https://www.google.com/maps?q=Kochi,+India" target="_blank" rel="noopener noreferrer">
+          Kochi, India
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <div class="contact-item">
+    <div class="contact-icon">
+      <i class="fas fa-envelope"></i>
+    </div>
+    <div>
+      <h3>Email</h3>
+      <p>
+        <a class="text-light" href="mailto:athulmj999@outlook.com">athulmj999@outlook.com</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="contact-item">
+    <div class="contact-icon">
+      <i class="fas fa-phone"></i>
+    </div>
+    <div>
+      <h3>Phone</h3>
+      <p>
+        <a class="text-light" href="tel:+919207856724">+91 9207856724</a>
+      </p>
+    </div>
+  </div>
+</div>
+
                 <div class="contact-form">
                     <h3>Send Me a Message</h3>
                     <form id="contactForm">
@@ -885,7 +884,7 @@
                 <a href="https://www.instagram.com/amj_creations24/" class="social-link" target="_blank"><i
                         class="fab fa-instagram"></i></a>
             </div>
-            <p class="copyright">&copy; <span id="year"></span> John Doe. All Rights Reserved.</p>
+            <p class="copyright">&copy; <span id="year"></span> Athul M J. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -905,35 +904,6 @@
             } else {
                 alert('Please fill in all fields.');
             }
-        });
-
-        // Mobile menu toggle
-        document.querySelector('.hamburger').addEventListener('click', function () {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-
-                    // Close mobile menu if open
-                    if (window.innerWidth < 768) {
-                        document.querySelector('.nav-links').style.display = 'none';
-                    }
-                }
-            });
         });
     </script>
 </body>
