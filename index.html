@@ -31,7 +31,7 @@
 
         .container {
             width: 90%;
-            max-width: 1200px;
+            /* max-width: 1200px; */
             margin: 0 auto;
         }
 
@@ -171,7 +171,7 @@
 
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
         }
 
@@ -201,7 +201,7 @@
         /* Projects Section */
         .projects-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 2rem;
         }
 
@@ -406,6 +406,69 @@
                 padding: 4rem 0;
             }
         }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px 30px;
+            border-radius: 8px;
+            width: 80%;
+            /* max-width: 400px; */
+            text-align: center;
+            animation: slideUp 0.4s ease;
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: #000;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-dialog-scrollable .modal-content {
+            max-height: inherit;
+            overflow: hidden;
+        }
     </style>
 </head>
 
@@ -449,6 +512,10 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item" style="cursor: pointer;">
+                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#resumeModal" download>Resume <i
+                                    class="fa-solid fa-download"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -523,7 +590,7 @@
                     <div class="skill-icon">
                         <i class="fab fa-js-square"></i>
                     </div>
-                    <h3>JavaScript/TypeScript</h3>
+                    <h3 class="text-truncate skill-title">JavaScript/TypeScript</h3>
                     <p>Creating interactive web experiences with modern JavaScript and TypeScript</p>
                 </div>
                 <div class="skill-item">
@@ -778,75 +845,68 @@
                 <p style="color: white;">Feel free to reach out if you want to collaborate or have any questions</p>
             </div>
             <div class="contact-container">
-                <!-- <div class="contact-info">
+
+                <div class="contact-info">
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div>
                             <h3>Location</h3>
-                            <p>Kochi, India</p>
+                            <p>
+                                <a class="text-light" href="https://www.google.com/maps?q=Kochi,+India" target="_blank"
+                                    rel="noopener noreferrer">
+                                    Kochi, India
+                                </a>
+                            </p>
                         </div>
                     </div>
+
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div>
                             <h3>Email</h3>
-                            <p>athulmj999@outlook.com</p>
+                            <p>
+                                <a class="text-light" href="mailto:athulmj999@outlook.com">athulmj999@outlook.com</a>
+                            </p>
                         </div>
                     </div>
+
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
                         <div>
                             <h3>Phone</h3>
-                            <p>+91 9207856724</p>
+                            <p>
+                                <a class="text-light" href="tel:+919207856724">+91 9207856724</a>
+                            </p>
                         </div>
                     </div>
-                </div> -->
 
-                <div class="contact-info">
-  <div class="contact-item">
-    <div class="contact-icon">
-      <i class="fas fa-map-marker-alt"></i>
-    </div>
-    <div>
-      <h3>Location</h3>
-      <p>
-        <a class="text-light" href="https://www.google.com/maps?q=Kochi,+India" target="_blank" rel="noopener noreferrer">
-          Kochi, India
-        </a>
-      </p>
-    </div>
-  </div>
+                    <div class="contact-item mt-4">
+                        <div class="contact-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div>
+                            <h3>Resume</h3>
+                            <a href="assets/athulmj_resume.pdf" class="d-block" data-bs-toggle="modal"
+                                data-bs-target="#resumeModal">
+                                <img src="assets/athulmj_resume_thumb.png" alt="Resume Thumbnail"
+                                    class="img-fluid rounded shadow" style="max-width: 200px; background-color: white;">
+                            </a>
 
-  <div class="contact-item">
-    <div class="contact-icon">
-      <i class="fas fa-envelope"></i>
-    </div>
-    <div>
-      <h3>Email</h3>
-      <p>
-        <a class="text-light" href="mailto:athulmj999@outlook.com">athulmj999@outlook.com</a>
-      </p>
-    </div>
-  </div>
+                            <p class="mt-2">
+                                <a class="btn btn-outline-light btn-sm" href="assets/athulmj_resume.pdf" download>
+                                    <i class="fas fa-download me-1"></i> Download PDF
+                                </a>
+                            </p>
+                        </div>
+                    </div>
 
-  <div class="contact-item">
-    <div class="contact-icon">
-      <i class="fas fa-phone"></i>
-    </div>
-    <div>
-      <h3>Phone</h3>
-      <p>
-        <a class="text-light" href="tel:+919207856724">+91 9207856724</a>
-      </p>
-    </div>
-  </div>
-</div>
+                </div>
 
                 <div class="contact-form">
                     <h3>Send Me a Message</h3>
@@ -888,24 +948,82 @@
         </div>
     </footer>
 
+    <!-- Resume Preview Modal -->
+    <div class="modal fade" id="resumeModal" tabindex="-1" aria-labelledby="resumeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resumeModalLabel">Resume Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <iframe src="assets/athulmj_resume.pdf" width="100%" height="600px" style="border: none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- message modal -->
+
+    <div class="modal fade" id="responseModal" tabindex="-1" aria-labelledby="responseModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4">
+                <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+                <img id="modalIcon" src="" alt="Status Icon" class="mx-auto d-block"
+                    style="width:80px; margin-bottom:15px;">
+                <h5 class="modal-title mb-2" id="responseModalLabel">Status</h5>
+                <p id="modalMessage" class="mb-0 text-muted"></p>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
-        // Simple form validation
+
+        const modal = new bootstrap.Modal(document.getElementById('responseModal'));
+        const modalIcon = document.getElementById("modalIcon");
+        const modalTitle = document.getElementById("responseModalLabel");
+        const modalMessage = document.getElementById("modalMessage");
+
         document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
 
             if (name && email && message) {
-                alert('Thanks for your message! I will get back to you soon.');
-                this.reset();
+                fetch("https://node-mail-server-v49s.onrender.com/send", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ name, email, message })
+                })
+                    .then(res => res.text())
+                    .then(response => {
+                        modalIcon.src = "https://cdn-icons-png.flaticon.com/512/4630/4630926.png"; // success icon
+                        modalTitle.textContent = "Message Sent!";
+                        modalMessage.textContent = response || "Thanks for your message! I will get back to you soon.";
+                        modal.show();
+                        this.reset();
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        modalIcon.src = "https://cdn-icons-png.flaticon.com/512/4630/4630983.png"; // error icon
+                        modalTitle.textContent = "Sending Failed";
+                        modalMessage.textContent = "There was an error sending your message. Please try again later.";
+                        modal.show();
+                    });
             } else {
-                alert('Please fill in all fields.');
+                modalIcon.src = "https://cdn-icons-png.flaticon.com/512/4630/4630956.png"; // warning icon
+                modalTitle.textContent = "Incomplete Form";
+                modalMessage.textContent = "Please fill in all fields before submitting.";
+                modal.show();
             }
         });
     </script>
+
 </body>
 
 </html>
